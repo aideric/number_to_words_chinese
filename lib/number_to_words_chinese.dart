@@ -72,7 +72,8 @@ class NumberToWordsChinese {
         return '';
       },
     ).replaceAllMapped(
-      RegExp("^${NumberToWordsChineseConstant.one}${NumberToWordsChineseConstant.ten}"),
+      RegExp(
+          "^${NumberToWordsChineseConstant.one}${NumberToWordsChineseConstant.ten}"),
       (match) {
         return NumberToWordsChineseConstant.ten;
       },
@@ -97,6 +98,8 @@ class NumberToWordsChinese {
 
 /// Chinese number to words constant
 class NumberToWordsChineseConstant {
+  NumberToWordsChineseConstant._();
+
   /// Chinese zero (0)
   static const String zero = '零';
 
