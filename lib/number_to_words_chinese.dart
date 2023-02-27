@@ -4,6 +4,7 @@ library number_to_words_chinese;
 class NumberToWordsChinese {
   NumberToWordsChinese._();
 
+  /// Covert number to chinese words.
   static String convert(num num) {
     // if (num == -9223372036854775808) {
     //   return _zero;
@@ -18,6 +19,7 @@ class NumberToWordsChinese {
     return stringBuffer.toString();
   }
 
+  /// Covert int number to chinese words.
   static String _intToChinese(int num) {
     String str = '';
     int n = num.abs();
@@ -76,6 +78,7 @@ class NumberToWordsChinese {
     return str;
   }
 
+  /// Covert decimal number to chinese words.
   static String _doubleToChinese(double num) {
     if (num % 1 == 0) return '';
 
@@ -86,11 +89,14 @@ class NumberToWordsChinese {
       str += _digitList[int.parse(i)];
     }
 
-    return _point + str;
+    return _dot + str;
   }
 }
 
+/// Chinese zero
 const String _zero = '零';
+
+/// Chinese digit list from 0 - 9
 const List<String> _digitList = [
   _zero,
   '一',
@@ -104,6 +110,7 @@ const List<String> _digitList = [
   '九',
 ];
 
+/// Chinese unit list
 const List<String> _unitList = [
   '',
   '十',
@@ -128,6 +135,8 @@ const List<String> _unitList = [
   '垓',
 ];
 
+/// Chinese negative
 const String _negative = '負';
 
-const String _point = '點';
+/// Chinese dot
+const String _dot = '點';
