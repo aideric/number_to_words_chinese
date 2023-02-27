@@ -10,30 +10,24 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
+## number_to_words_chinese
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Flutter package that converts number to words (Chinese language).
+
+Inspired by number to chinese words js library https://www.npmjs.com/package/number-to-chinese-words
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Covert number to Chinese words
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+To use this plugin, add `number_to_words_chinese` as a [dependency in your pubspec.yaml file](https://flutter.dev/platform-plugins/).
+
+## Example
 
 ```dart
-const like = 'sample';
+Text(
+    NumberToWordsChinese.convert(12345),
+),
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
