@@ -11,7 +11,7 @@ class NumberToWordsChinese {
     // }
     final StringBuffer stringBuffer = StringBuffer();
     if (num < 0) {
-      stringBuffer.write(_negative);
+      stringBuffer.write(NumberToWordsChineseConstant.negative);
       num = num.abs();
     }
     stringBuffer.write(_intToChinese(num.toInt()));
@@ -25,24 +25,26 @@ class NumberToWordsChinese {
     int n = num.abs();
 
     if (n == 0) {
-      return _zero;
+      return NumberToWordsChineseConstant.zero;
     }
 
-    List<String> unitsListCopy = _unitList.toList();
+    List<String> unitsListCopy = NumberToWordsChineseConstant.unitList.toList();
     while (n > 0) {
       final unit = unitsListCopy.removeAt(0);
       final int digit = n % 10;
-      str = _digitList[digit] + unit + str;
+      str = NumberToWordsChineseConstant.digitList[digit] + unit + str;
       n = n ~/ 10;
     }
 
-    final smallUnit = _unitList[1] + _unitList[2] + _unitList[3];
-    final bigUnit = _unitList[4] +
-        _unitList[8] +
-        _unitList[12] +
-        _unitList[16] +
-        _unitList[20];
-    const zero = _zero;
+    const smallUnit = NumberToWordsChineseConstant.ten +
+        NumberToWordsChineseConstant.hundred +
+        NumberToWordsChineseConstant.thousand;
+    const bigUnit = NumberToWordsChineseConstant.tenThousand +
+        NumberToWordsChineseConstant.hundredMillion +
+        NumberToWordsChineseConstant.trillion +
+        NumberToWordsChineseConstant.tenQuadrillion +
+        NumberToWordsChineseConstant.hundredQuintillion;
+    const zero = NumberToWordsChineseConstant.zero;
 
     str = str.replaceAllMapped(
       RegExp("($zero)[$smallUnit]"),
@@ -70,9 +72,9 @@ class NumberToWordsChinese {
         return '';
       },
     ).replaceAllMapped(
-      RegExp("^${_digitList[1]}${_unitList[1]}"),
+      RegExp("^${NumberToWordsChineseConstant.one}${NumberToWordsChineseConstant.ten}"),
       (match) {
-        return _unitList[1];
+        return NumberToWordsChineseConstant.ten;
       },
     );
     return str;
@@ -86,57 +88,111 @@ class NumberToWordsChinese {
     final String n = num.abs().toString().split('.').last;
     final List<String> nSplit = n.split('');
     for (String i in nSplit) {
-      str += _digitList[int.parse(i)];
+      str += NumberToWordsChineseConstant.digitList[int.parse(i)];
     }
 
-    return _dot + str;
+    return NumberToWordsChineseConstant.dot + str;
   }
 }
 
-/// Chinese zero
-const String _zero = '零';
+/// Chinese number to words constant
+class NumberToWordsChineseConstant {
+  /// Chinese zero (0)
+  static const String zero = '零';
 
-/// Chinese digit list from 0 - 9
-const List<String> _digitList = [
-  _zero,
-  '一',
-  '二',
-  '三',
-  '四',
-  '五',
-  '六',
-  '七',
-  '八',
-  '九',
-];
+  /// Chinese one (1)
+  static const String one = '一';
 
-/// Chinese unit list
-const List<String> _unitList = [
-  '',
-  '十',
-  '百',
-  '千',
-  '萬',
-  '十',
-  '百',
-  '千',
-  '億',
-  '十',
-  '百',
-  '千',
-  '兆',
-  '十',
-  '百',
-  '千',
-  '京',
-  '十',
-  '百',
-  '千',
-  '垓',
-];
+  /// Chinese two (2)
+  static const String two = '二';
 
-/// Chinese negative
-const String _negative = '負';
+  /// Chinese three (3)
+  static const String three = '三';
 
-/// Chinese dot
-const String _dot = '點';
+  /// Chinese four (4)
+  static const String four = '四';
+
+  /// Chinese five (5)
+  static const String five = '五';
+
+  /// Chinese six (6)
+  static const String six = '六';
+
+  /// Chinese seven (7)
+  static const String seven = '七';
+
+  /// Chinese eight (8)
+  static const String eight = '八';
+
+  /// Chinese nine (9)
+  static const String nine = '九';
+
+  /// Chinese digit list from 0 - 9
+  static const List<String> digitList = [
+    zero,
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+    nine,
+  ];
+
+  /// Chinese ten (10)
+  static const String ten = '十';
+
+  /// Chinese hundred (100)
+  static const String hundred = '百';
+
+  /// Chinese thousand (1000)
+  static const String thousand = '千';
+
+  /// Chinese ten thousand (10000)
+  static const String tenThousand = '萬';
+
+  /// Chinese hundred million (100000000)
+  static const String hundredMillion = '億';
+
+  /// Chinese trillion (1000000000000)
+  static const String trillion = '兆';
+
+  /// Chinese trillion (10000000000000000)
+  static const String tenQuadrillion = '京';
+
+  /// Chinese (100000000000000000000)
+  static const String hundredQuintillion = '垓';
+
+  /// Chinese unit list
+  static const List<String> unitList = [
+    '',
+    ten,
+    hundred,
+    thousand,
+    tenThousand,
+    ten,
+    hundred,
+    thousand,
+    hundredMillion,
+    ten,
+    hundred,
+    thousand,
+    trillion,
+    ten,
+    hundred,
+    thousand,
+    tenQuadrillion,
+    ten,
+    hundred,
+    thousand,
+    hundredQuintillion,
+  ];
+
+  /// Chinese negative (-)
+  static const String negative = '負';
+
+  /// Chinese dot (.)
+  static const String dot = '點';
+}
