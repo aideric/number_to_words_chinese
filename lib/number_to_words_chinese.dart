@@ -162,10 +162,10 @@ class NumberToWordsChineseConstant {
   /// Chinese trillion (1000000000000)
   static const String trillion = '兆';
 
-  /// Chinese trillion (10000000000000000)
+  /// Chinese ten quadrillion (10000000000000000)
   static const String tenQuadrillion = '京';
 
-  /// Chinese (100000000000000000000)
+  /// Chinese hundred quintillion (100000000000000000000)
   static const String hundredQuintillion = '垓';
 
   /// Chinese unit list
