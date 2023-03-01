@@ -10,15 +10,17 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
-## number_to_words_chinese
+## Number to words (Chinese)
 
-A Flutter package that converts number to words (Chinese language).
+A Flutter package that converts number to words (Chinese characters).
 
 Inspired by number to chinese words js library https://www.npmjs.com/package/number-to-chinese-words
 
 ## Features
 
-Covert number to Chinese words
+Covert number to Chinese words.
+
+Support both integer and double.
 
 ## Usage
 
