@@ -15,7 +15,7 @@ class NumberToWordsChinese {
       num = num.abs();
     }
     stringBuffer.write(_intToChinese(num.toInt()));
-    stringBuffer.write(_doubleToChinese(num));
+    stringBuffer.write(_decimalToChinese(num));
     return stringBuffer.toString();
   }
 
@@ -78,7 +78,7 @@ class NumberToWordsChinese {
   }
 
   /// Covert decimal number to chinese words.
-  static String _doubleToChinese(num num) {
+  static String _decimalToChinese(num num) {
     if (num % 1 == 0) return '';
 
     String str = '';
